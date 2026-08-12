@@ -1,0 +1,142 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="Nucleo-G0B1RE_Arduino-CAN_Shield" target="8" version="2">
+  <configuration
+    Name="Debug"
+    c_preprocessor_definitions="DEBUG;DISABLE_WATCH_DOG"
+    gcc_debugging_level="Level 3"
+    gcc_omit_frame_pointer="Yes"
+    gcc_optimization_level="None"
+    hidden="Yes" />
+  <configuration
+    Name="Release"
+    c_preprocessor_definitions="NDEBUG"
+    gcc_debugging_level="None"
+    gcc_omit_frame_pointer="Yes"
+    gcc_optimization_level="None"
+    hidden="Yes" />
+  <configuration
+    Name="THUMB"
+    Platform="ARM"
+    arm_instruction_set="Thumb"
+    arm_library_instruction_set="Thumb"
+    c_preprocessor_definitions="__THUMB"
+    hidden="Yes" />
+  <configuration
+    Name="THUMB Debug"
+    inherited_configurations="THUMB;Debug;CANopenNode" />
+  <configuration
+    Name="THUMB Release"
+    inherited_configurations="THUMB;Release;CANopenNode" />
+  <project Name="Nucleo-G0B1RE_Arduino-CAN_Shield">
+    <configuration
+      CMSIS_CORE="Yes"
+      Name="Common"
+      Placement="Flash"
+      Target="STM32G0B1RE"
+      arm_architecture="v6M"
+      arm_core_type="Cortex-M0+"
+      arm_fp_abi="Soft"
+      arm_fpu_type="None"
+      arm_linker_heap_size="4096"
+      arm_linker_jtag_pad_pre_dr="1"
+      arm_linker_jtag_pad_pre_ir="5"
+      arm_linker_process_stack_size="0"
+      arm_linker_stack_size="2048"
+      arm_simulator_memory_simulation_filename="$(TargetsDir)/STM32/STM32SimulatorMemory$(HostDLL)"
+      arm_simulator_memory_simulation_parameter="STM32G0B1RE;0x80000;0x24000"
+      arm_target_loader_applicable_loaders="Flash"
+      arm_target_loader_default_loader="Flash"
+      arm_target_trace_interface_type="None"
+      c_preprocessor_definitions="USE_HAL_DRIVER;STM32G0B1xx;STARTUP_FROM_RESET"
+      c_user_include_directories="./../Core/Inc;./../Drivers/STM32G0xx_HAL_Driver/Inc;./../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy;./../Drivers/CMSIS/Device/ST/STM32G0xx/Include;./../Drivers/CMSIS/Include;./../CANopen_OD;../../Submodule_CanOpenSTM32/CANopenNode;../../Submodule_CanOpenSTM32/CANopenNode_STM32"
+      debug_register_definition_file="$(TargetsDir)/STM32/STM32G0B1_Peripherals.xml"
+      linker_memory_map_file="$(TargetsDir)/STM32/STM32G0B1RE_MemoryMap.xml"
+      linker_output_format="bin"
+      linker_section_placement_file="$(StudioDir)/targets/Cortex_M/flash_placement.xml"
+      macros="DeviceVectorsFile=STM32G0B1xx.vec"
+      project_directory=""
+      project_type="Executable"
+      property_groups_file_path="$(TargetsDir)/STM32/propertyGroups.xml"
+      target_get_partname_script="GetPartName()"
+      target_match_partname_script="MatchPartName(&quot;$(Target)&quot;)"
+      target_script_file="$(TargetsDir)/STM32/STM32_Target.js"
+      target_trace_initialize_script="EnableTrace(&quot;$(TraceInterfaceType)&quot;)" />
+    <configuration
+      Name="Flash"
+      arm_target_flash_loader_file_path="$(LOADER:$(TargetsDir)/STM32/Release/STM32G0_Loader_rpc.elf)"
+      arm_target_loader_can_erase_all="Yes"
+      arm_target_loader_can_lock_all="No"
+      arm_target_loader_can_lock_range="No"
+      arm_target_loader_can_unlock_all="No"
+      arm_target_loader_can_unlock_range="No"
+      target_reset_script="FLASHReset()" />
+    <configuration Name="RAM" target_reset_script="Reset()" />
+    <folder Name="Application">
+      <folder
+        Name="CANopen_OD"
+        exclude=""
+        filter=""
+        path="../CANopen_OD"
+        recurse="Yes" />
+      <folder Name="Core">
+        <folder Name="Includes">
+          <file file_name="../Core/Inc/fdcan.h" />
+          <file file_name="../Core/Inc/gpio.h" />
+          <file file_name="../Core/Inc/main.h" />
+          <file file_name="../Core/Inc/stm32g0xx_hal_conf.h" />
+          <file file_name="../Core/Inc/stm32g0xx_it.h" />
+          <file file_name="../Core/Inc/tim.h" />
+          <file file_name="../Core/Inc/usart.h" />
+        </folder>
+        <file file_name="./../Core/Src/fdcan.c" />
+        <file file_name="./../Core/Src/gpio.c" />
+        <file file_name="./../Core/Src/main.c" />
+        <file file_name="./../Core/Src/stm32g0xx_hal_msp.c" />
+        <file file_name="./../Core/Src/stm32g0xx_it.c" />
+        <file file_name="./../Core/Src/tim.c" />
+        <file file_name="./../Core/Src/usart.c" />
+      </folder>
+    </folder>
+    <folder Name="Drivers">
+      <folder Name="CMSIS">
+        <file file_name="./../Core/Src/system_stm32g0xx.c" />
+      </folder>
+      <folder Name="STM32G0xx_HAL_Driver">
+        <file file_name="./../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c" />
+        <file file_name="./../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c" />
+        <file file_name="./../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c" />
+        <file file_name="./../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c" />
+        <file file_name="./../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.c" />
+        <file file_name="./../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_fdcan.c" />
+        <file file_name="./../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c" />
+        <file file_name="./../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c" />
+        <file file_name="./../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.c" />
+        <file file_name="./../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c" />
+        <file file_name="./../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.c" />
+        <file file_name="./../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.c" />
+        <file file_name="./../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c" />
+        <file file_name="./../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.c" />
+        <file file_name="./../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.c" />
+        <file file_name="./../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart.c" />
+        <file file_name="./../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_uart_ex.c" />
+        <file file_name="./../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.c" />
+      </folder>
+    </folder>
+    <folder Name="Source Files">
+      <configuration Name="Common" filter="c;cpp;cxx;cc;h;s;asm;inc" />
+    </folder>
+    <folder Name="Submodule">
+      <folder
+        Name="Submodule_CanOpenSTM32"
+        exclude="examples;legacy;example;extra;storage;doc;../Submodule_CanOpenSTM32/CANopenNode_STM32/OD.c;../Submodule_CanOpenSTM32/CANopenNode_STM32/OD.h;../../Submodule_CanOpenSTM32/CANopenNode_STM32/OD.c;../../Submodule_CanOpenSTM32/CANopenNode_STM32/OD.h"
+        filter="*.c;*.h"
+        path="../../Submodule_CanOpenSTM32"
+        recurse="Yes" />
+    </folder>
+    <folder Name="System Files">
+      <file file_name="$(TargetsDir)/STM32/$(DeviceVectorsFile)" />
+      <file file_name="$(TargetsDir)/STM32/STM32_Startup.s" />
+      <file file_name="$(StudioDir)/source/thumb_crt0.s" />
+    </folder>
+  </project>
+</solution>

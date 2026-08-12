@@ -1,0 +1,41 @@
+### Grundeinstellungen ###
+# alle Dateien/Ordner verbieten
+*
+# alle Ordner wieder erlauben, damit der Inhalt (Dateien u. Unterordner) von git gelesen werden kann
+!*/
+# diese Datei immer erlauben
+!.gitignore
+
+### Black List für spezielle Ordner ###
+**/Backup*/
+**/backup*/
+**/Debug*/
+**/Release*/
+**/Firmware*/
+**/firmware*/
+**/bin/
+**/build/
+
+### spezielle Projektordner in Crossworks ###
+# alle Dateien erlauben
+!**/EWARM/*
+!**/MDK-ARM/*
+!**/Project/*
+# aber alle Unterordner (Build-Ordner) ausschließen
+**/EWARM/*/
+**/MDK-ARM/*/
+**/Project/*/
+
+**/CMSIS/Lib/*
+
+### White List für alle Dateien in den verbliebenen Ordnern ###
+# evtl. etwas ungenau, falls es Ordner mit einem Punkt im Namen gibt
+!*.*
+# aber Crossworks-Sessiondateien ausschließen
+*.hzs
+
+### zusätzliche Black List für Sicherungs- und temp. Dateien ###
+*.bak
+*.orig
+*.tmp
+*Kopie*
