@@ -4,8 +4,8 @@
 - project files for CubeIDE and Crossstudio available
 - initialization of the submodule with `git submodule update --init --recursive`
 - two Nucleo boards with Arduino CAN shields
-    - NUCLEO-G070RB: the board (CAN id 1) where the issue is to be reproduced
-    - Nucleo-L476RG: a generic board (CAN id 2) for sending PDOs
+    - NUCLEO-G070RB: the board (FDCAN, CAN id 1) where the issue is to be reproduced
+    - Nucleo-L476RG: a generic board (classic CAN, CAN id 2) for sending PDOs
     - both devices are PDO producer/consumer
 - [CANopen Linux](https://github.com/CANopenNode/CANopenLinux) or any other useful tool for sending/receiving SDOs via command line.
 - procedure:
@@ -16,4 +16,4 @@
         - `cocomm "1 r 0x2101 1"`, a delay is noticeable between transmission and reception
         - repeat the SDO reading with the other board, no delay or timeout should occur
 - running the same procedure for the Nucleo-L476RG board did not show any issues
-- additional board Nucleo-C092RC (CAN id 3) where the issue can also be observed
+- additional board Nucleo-C092RC (FDCAN, CAN id 3) where the issue can also be observed
