@@ -14,4 +14,5 @@
     - read some SDOs, e.g., using the CANopenLinux toolset:
         - `cocomm "1 r 0x2100 1"`, the expected output is `[1] ERROR:0x05040000 #SDO protocol timed out.`
         - `cocomm "1 r 0x2101 1"`, a delay is noticeable between transmission and reception
-    - repeat that with the other board, no delay or timeout should occur
+        - repeat the SDO reading with the other board, no delay or timeout should occur
+- running the same procedure for the Nucleo-L476RG board did not show any issues
