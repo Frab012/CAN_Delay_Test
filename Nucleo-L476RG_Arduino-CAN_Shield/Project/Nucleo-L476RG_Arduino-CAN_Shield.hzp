@@ -46,7 +46,7 @@
       arm_target_loader_applicable_loaders="Flash"
       arm_target_loader_default_loader="Flash"
       arm_target_trace_interface_type="None"
-      c_preprocessor_definitions="USE_HAL_DRIVER;STM32L476xx"
+      c_preprocessor_definitions="USE_HAL_DRIVER;STM32L476xx;STARTUP_FROM_RESET"
       c_user_include_directories="./../Core/Inc;./../Drivers/STM32L4xx_HAL_Driver/Inc;./../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy;./../Drivers/CMSIS/Device/ST/STM32L4xx/Include;./../Drivers/CMSIS/Include;./../CANopen_OD;../../Submodule_CanOpenSTM32/CANopenNode;../../Submodule_CanOpenSTM32/CANopenNode_STM32"
       debug_register_definition_file="$(TargetsDir)/STM32/STM32L476_Peripherals.xml"
       linker_memory_map_file="$(TargetsDir)/STM32/STM32L476RG_MemoryMap.xml"
