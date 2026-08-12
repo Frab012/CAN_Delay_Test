@@ -6,7 +6,7 @@
 - two Nucleo boards with Arduino CAN shields
     - NUCLEO-G070RB: the board (CAN id 1) where the issue is to be reproduced
     - Nucleo-L476RG: a generic board (CAN id 2) for sending PDOs
-    - both devices are PDO producer/receiver
+    - both devices are PDO producer/consumer
 - [CANopen Linux](https://github.com/CANopenNode/CANopenLinux) or any other useful tool for sending/receiving SDOs via command line.
 - procedure:
     - running the NUCLEO-G070RB board in debug mode
